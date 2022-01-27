@@ -1,5 +1,101 @@
+/*==========google fonts==========*/
+/*=====montserrat font=====*/
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.intro {
+/*=====poppins font=====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*==========CUSTOOM CSS==========*/
+:root {
+  --neumorphism-style: 5px 5px 7px #a5a8aa, -5px -5px 7px #ffffff;
+  --neumorphism-bg: #ecf0f3;
+}
+
+/*==========banner===========*/
+.my_intro {
   font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 52px;
+  margin: 0;
+}
+
+.description {
+  font-family: "Poppins", sans-serif;
+}
+
+.top_head {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+  color: #3c3e41;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.my-image {
+  box-shadow: var(--neumorphism-style);
+  background: var(--neumorphism-bg);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.contact {
+  box-shadow: var(--neumorphism-style);
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 12px;
+  border-radius: 10px;
+}
+.contact a {
+  text-decoration: none;
+  padding: 10px 20px;
+  box-shadow: var(--neumorphism-style);
+  display: inline-block;
+  margin: 0 15px;
+  color: #ff014f;
+  transition: all linear 0.3s;
+  border-radius: 5px;
+}
+
+.contact a:hover {
+  background-color: #ff014f;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.social_link {
+  box-shadow: var(--neumorphism-style);
+  text-align: center;
+  padding: 19px 0;
+  margin-top: 12px;
+  border-radius: 10px;
+}
+
+.social_link ul {
+  list-style: none;
+  padding: 0;
+}
+.social_link ul li {
+  display: inline-block;
+  box-shadow: var(--neumorphism-style);
+  margin: 0 10px;
+  border-radius: 8px;
+}
+
+.social_link ul li a {
+  color: #ff014f;
+  transition: all linear 0.3s;
+  padding: 10px 15px;
+  display: inline-block;
+}
+
+.social_link ul li:hover {
+  background-color: #ff014f;
+  box-shadow: none;
+}
+
+.social_link ul li:hover a {
+  color: #ffffff;
 }

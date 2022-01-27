@@ -1,0 +1,9 @@
+.neumorphism {
+  box-shadow: var(--neumorphism-style);
+}
+
+.design,
+.development {
+  padding: 15px;
+  border-radius: 15px;
+}
