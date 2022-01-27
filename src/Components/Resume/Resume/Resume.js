@@ -79,7 +79,7 @@ const Resume = () => {
                         3+ Years Of Experience
                     </Typography>
                     <Typography >
-                        <h1 className='resume'>My Resume</h1>
+                        <h1 style={{ marginBottom: '20px' }} className='resume'>My Resume</h1>
                     </Typography>
                 </div>
                 <Box sx={{ width: '100%' }}>

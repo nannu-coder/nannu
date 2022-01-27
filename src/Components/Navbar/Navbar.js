@@ -11,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -132,13 +133,24 @@ const Navbar = (props) => {
                                     </Button>
                                 ))} */}
 
-                                <Button
+                                <Link to="home">
+                                    <Button
 
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: '#3c3e41', display: 'block' }}
-                                >
-                                    New
-                                </Button>
+                                        onClick={handleCloseNavMenu}
+                                        sx={{ my: 2, color: '#3c3e41', display: 'block' }}
+                                    >
+                                        Home
+                                    </Button>
+                                </Link>
+                                <Link to="allproject">
+                                    <Button
+
+                                        onClick={handleCloseNavMenu}
+                                        sx={{ my: 2, color: '#3c3e41', display: 'block' }}
+                                    >
+                                        New
+                                    </Button>
+                                </Link>
 
                             </Box>
 
