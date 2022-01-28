@@ -11,7 +11,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import image from '../../images/time.png'
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -73,6 +74,10 @@ const Navbar = (props) => {
                                 component="div"
                                 sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                             >
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+
+                            </Typography>
+                            <Typography>
                                 LOGO
                             </Typography>
 
@@ -120,7 +125,7 @@ const Navbar = (props) => {
                                 component="div"
                                 sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                             >
-                                LOGO
+                                <Avatar alt="Remy Sharp" src={image} /> LOGO
                             </Typography>
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                                 {/* {pages.map((page) => (
@@ -133,7 +138,7 @@ const Navbar = (props) => {
                                     </Button>
                                 ))} */}
 
-                                <Link to="home">
+                                <Link to="/home">
                                     <Button
 
                                         onClick={handleCloseNavMenu}
@@ -142,7 +147,7 @@ const Navbar = (props) => {
                                         Home
                                     </Button>
                                 </Link>
-                                <Link to="allproject">
+                                <Link to="/allproject">
                                     <Button
 
                                         onClick={handleCloseNavMenu}

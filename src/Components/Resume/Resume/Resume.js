@@ -4,12 +4,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import { Container } from '@mui/material';
+import { Container, Divider } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Skills from '../Skills/Skills';
 import './Resume.css';
 import Portfolio from '../Portfolio/Portfolio';
 import Educations from '../Educations/Educations';
+
 
 
 function TabPanel(props) {
@@ -105,6 +106,7 @@ const Resume = () => {
                         <Educations></Educations>
                     </TabPanel>
                 </Box>
+                <Divider style={{ marginTop: '50px' }}></Divider>
             </Container>
         </div>
     );
