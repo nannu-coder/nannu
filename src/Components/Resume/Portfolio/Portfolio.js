@@ -3,12 +3,12 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import somoy from '../../../images/somoy.png';
 import travel from '../../../images/travel.png';
 import medinova from '../../../images/madinova.png';
+import './Portfolio.css'
 
 const Portfolio = () => {
     return (
@@ -32,8 +32,11 @@ const Portfolio = () => {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Share</Button>
-                            <Button size="small">Learn More</Button>
+                            <Button className='port_btn' size="small">
+                                <a href="https://times-somoy.web.app/" target="_blank" rel="noopener noreferrer">
+                                    View Project
+                                </a>
+                            </Button>
                         </CardActions>
                     </Card>
                 </Grid>
@@ -55,8 +58,11 @@ const Portfolio = () => {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Share</Button>
-                            <Button size="small">Learn More</Button>
+                            <Button className='port_btn' size="small">
+                                <a href="https://travelpro-tourism.web.app/" target="_blank" rel="noopener noreferrer">
+                                    View Project
+                                </a>
+                            </Button>
                         </CardActions>
                     </Card>
                 </Grid>
@@ -78,8 +84,11 @@ const Portfolio = () => {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Share</Button>
-                            <Button size="small">Learn More</Button>
+                            <Button className='port_btn' size="small">
+                                <a href="https://medinova-health-care.web.app/" target="_blank" rel="noopener noreferrer">
+                                    View Project
+                                </a>
+                            </Button>
                         </CardActions>
                     </Card>
                 </Grid>

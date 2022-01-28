@@ -4,7 +4,7 @@ import { Container, Divider, Typography } from '@mui/material';
 import './Banner.css';
 import Typed from 'react-typed';
 import 'react-typed/dist/animatedCursor.css';
-import banner from '../../images/banner.png';
+import banner from '../../images/profile.png';
 import { FaInstagram, FaGithub, FaLinkedinIn, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { SiFiverr, SiFreelancer, SiUpwork, SiStackoverflow } from 'react-icons/si';
 
@@ -39,7 +39,7 @@ const Banner = () => {
                     </Grid>
                     <Grid item xs={12} md={5}>
                         <div className="my-image">
-                            <img style={{ borderRadius: '10px' }} src={banner} alt="" />
+                            <img style={{ borderRadius: '10px', width: '100%' }} src={banner} alt="" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={7}>
@@ -50,45 +50,45 @@ const Banner = () => {
                                 </Typography>
                                 <ul>
                                     <li>
-                                        <a href="#"><FaGithub size={22} /></a>
+                                        <a href="https://github.com/nannu-coder" target='_blank'><FaGithub size={22} /></a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.linkedin.com/in/nazmul-hasan-nannu-927664201/" target='_blank'>
                                             <FaLinkedinIn size={22} />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.facebook.com/nannu.hasan.18/" target='_blank'>
                                             <FaFacebookF size={22} />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.instagram.com/nazmul_nannu/?hl=en" target="_blank">
                                             <FaInstagram size={22} />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://twitter.com/nannuHasan32" target="_blank">
                                             <FaTwitter size={22} />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.fiverr.com/nazmul_nannu" target="_blank">
                                             <SiFiverr size={22} />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.freelancer.com/u/themeworld" target="_blank">
                                             <SiFreelancer size={22} />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://www.upwork.com/freelancers/~018d5d489ea59e7f67" target="_blank">
                                             <SiUpwork size={22} />
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="https://stackoverflow.com/users/12042438/nannu" target="_blank">
                                             <SiStackoverflow size={22} />
                                         </a>
                                     </li>
@@ -101,14 +101,14 @@ const Banner = () => {
                             <Typography style={{ marginBottom: '15px' }} variant='body1'>
                                 Download My CV:
                             </Typography>
-                            <a href="#">Download CV</a>
+                            <a href="https://docs.google.com/document/d/1xTZ0gNVM0uws79UMmz_fIar9kgex86m2/edit?usp=sharing&ouid=103612310798961976224&rtpof=true&sd=true" target="_blank">Download CV</a>
                             <a href="#">Conatct Me</a>
                         </div>
                     </Grid>
                 </Grid>
             </Container>
             <Divider style={{ marginTop: '50px' }}></Divider>
-        </div>
+        </div >
     );
 };
 

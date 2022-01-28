@@ -11,8 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import image from '../../images/time.png'
+import { NavLink } from 'react-router-dom';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -74,11 +73,7 @@ const Navbar = (props) => {
                                 component="div"
                                 sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                             >
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-
-                            </Typography>
-                            <Typography>
-                                LOGO
+                                Nannu
                             </Typography>
 
                             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -110,11 +105,69 @@ const Navbar = (props) => {
                                         display: { xs: 'block', md: 'none' },
                                     }}
                                 >
-                                    {pages.map((page) => (
-                                        <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center">{page}</Typography>
-                                        </MenuItem>
-                                    ))}
+
+                                    <MenuItem onClick={handleCloseNavMenu}>
+                                        <NavLink
+                                            style={({ isActive }) => {
+                                                return {
+                                                    display: "block",
+                                                    textDecoration: 'none',
+                                                    color: isActive ? "#ff014f" : ""
+                                                };
+                                            }}
+                                            to="/home"
+
+                                        >
+                                            <Button
+
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ my: 2, color: '#3c3e41', display: 'block' }}
+                                            >
+                                                Home
+                                            </Button>
+                                        </NavLink>
+
+                                        <NavLink
+                                            style={({ isActive }) => {
+                                                return {
+                                                    display: "block",
+                                                    textDecoration: 'none',
+                                                    color: isActive ? "#ff014f" : ""
+                                                };
+                                            }}
+                                            to="/allproject"
+
+                                        >
+                                            <Button
+
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ my: 2, color: '#3c3e41', display: 'block' }}
+                                            >
+                                                All Project
+                                            </Button>
+                                        </NavLink>
+                                    </MenuItem>
+
+                                    <NavLink
+                                        style={({ isActive }) => {
+                                            return {
+                                                display: "block",
+                                                textDecoration: 'none',
+                                                color: isActive ? "#ff014f" : ""
+                                            };
+                                        }}
+                                        to="/blog"
+
+                                    >
+                                        <Button
+
+                                            onClick={handleCloseNavMenu}
+                                            sx={{ my: 2, color: '#3c3e41', display: 'block' }}
+                                        >
+                                            Blog
+                                        </Button>
+                                    </NavLink>
+
 
 
                                 </Menu>
@@ -125,20 +178,21 @@ const Navbar = (props) => {
                                 component="div"
                                 sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                             >
-                                <Avatar alt="Remy Sharp" src={image} /> LOGO
+                                Nannu
                             </Typography>
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                                {/* {pages.map((page) => (
-                                    <Button
-                                        key={page}
-                                        onClick={handleCloseNavMenu}
-                                        sx={{ my: 2, color: 'white', display: 'block' }}
-                                    >
-                                        {page}
-                                    </Button>
-                                ))} */}
 
-                                <Link to="/home">
+                                <NavLink
+                                    style={({ isActive }) => {
+                                        return {
+                                            display: "block",
+                                            textDecoration: 'none',
+                                            color: isActive ? "#ff014f" : ""
+                                        };
+                                    }}
+                                    to="/home"
+
+                                >
                                     <Button
 
                                         onClick={handleCloseNavMenu}
@@ -146,16 +200,47 @@ const Navbar = (props) => {
                                     >
                                         Home
                                     </Button>
-                                </Link>
-                                <Link to="/allproject">
+                                </NavLink>
+
+                                <NavLink
+                                    style={({ isActive }) => {
+                                        return {
+                                            display: "block",
+                                            textDecoration: 'none',
+                                            color: isActive ? "#ff014f" : ""
+                                        };
+                                    }}
+                                    to="/allproject"
+
+                                >
                                     <Button
 
                                         onClick={handleCloseNavMenu}
                                         sx={{ my: 2, color: '#3c3e41', display: 'block' }}
                                     >
-                                        New
+                                        All Project
                                     </Button>
-                                </Link>
+                                </NavLink>
+
+                                <NavLink
+                                    style={({ isActive }) => {
+                                        return {
+                                            display: "block",
+                                            textDecoration: 'none',
+                                            color: isActive ? "#ff014f" : ""
+                                        };
+                                    }}
+                                    to="/blog"
+
+                                >
+                                    <Button
+
+                                        onClick={handleCloseNavMenu}
+                                        sx={{ my: 2, color: '#3c3e41', display: 'block' }}
+                                    >
+                                        Blog
+                                    </Button>
+                                </NavLink>
 
                             </Box>
 
