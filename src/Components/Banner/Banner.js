@@ -7,6 +7,7 @@ import 'react-typed/dist/animatedCursor.css';
 import banner from '../../images/profile.png';
 import { FaInstagram, FaGithub, FaLinkedinIn, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { SiFiverr, SiFreelancer, SiUpwork, SiStackoverflow } from 'react-icons/si';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -102,7 +103,9 @@ const Banner = () => {
                                 Download My CV:
                             </Typography>
                             <a href="https://docs.google.com/document/d/1xTZ0gNVM0uws79UMmz_fIar9kgex86m2/edit?usp=sharing&ouid=103612310798961976224&rtpof=true&sd=true" target="_blank">Download CV</a>
-                            <a href="#">Conatct Me</a>
+                            <Link to='/comingsoon'>
+                                Conatct Me
+                            </Link>
                         </div>
                     </Grid>
                 </Grid>

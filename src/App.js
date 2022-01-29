@@ -7,7 +7,9 @@ import {
 } from "react-router-dom";
 import AllProject from './Components/AllProject/AllProject';
 import Navbar from './Components/Navbar/Navbar'
-import Footer from './Components/Footer/Footer';
+import NotFound from './Components/NotFound/NotFound';
+import ComingSoon from './Components/ComingSoon/ComingSoon';
+// import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -19,8 +21,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/allproject' element={<AllProject />} />
+          <Route path='/comingsoon' element={<ComingSoon />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
-        <Footer></Footer>
       </BrowserRouter>
     </div>
   );

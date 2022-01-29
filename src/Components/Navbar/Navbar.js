@@ -121,12 +121,14 @@ const Navbar = (props) => {
                                             <Button
 
                                                 onClick={handleCloseNavMenu}
-                                                sx={{ my: 2, color: '#3c3e41', display: 'block' }}
+                                                sx={{ color: '#3c3e41', display: 'block' }}
                                             >
                                                 Home
                                             </Button>
                                         </NavLink>
+                                    </MenuItem>
 
+                                    <MenuItem onClick={handleCloseNavMenu}>
                                         <NavLink
                                             style={({ isActive }) => {
                                                 return {
@@ -135,41 +137,40 @@ const Navbar = (props) => {
                                                     color: isActive ? "#ff014f" : ""
                                                 };
                                             }}
-                                            to="/allproject"
+                                            to="/comingsoon"
 
                                         >
                                             <Button
 
                                                 onClick={handleCloseNavMenu}
-                                                sx={{ my: 2, color: '#3c3e41', display: 'block' }}
+                                                sx={{ color: '#3c3e41', display: 'block' }}
                                             >
                                                 All Project
                                             </Button>
                                         </NavLink>
                                     </MenuItem>
 
-                                    <NavLink
-                                        style={({ isActive }) => {
-                                            return {
-                                                display: "block",
-                                                textDecoration: 'none',
-                                                color: isActive ? "#ff014f" : ""
-                                            };
-                                        }}
-                                        to="/blog"
+                                    <MenuItem onClick={handleCloseNavMenu}>
+                                        <NavLink
+                                            style={({ isActive }) => {
+                                                return {
+                                                    display: "block",
+                                                    textDecoration: 'none',
+                                                    color: isActive ? "#ff014f" : ""
+                                                };
+                                            }}
+                                            to="/comingsoon"
 
-                                    >
-                                        <Button
-
-                                            onClick={handleCloseNavMenu}
-                                            sx={{ my: 2, color: '#3c3e41', display: 'block' }}
                                         >
-                                            Blog
-                                        </Button>
-                                    </NavLink>
+                                            <Button
 
-
-
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ color: '#3c3e41', display: 'block' }}
+                                            >
+                                                Blog
+                                            </Button>
+                                        </NavLink>
+                                    </MenuItem>
                                 </Menu>
                             </Box>
                             <Typography
@@ -210,7 +211,7 @@ const Navbar = (props) => {
                                             color: isActive ? "#ff014f" : ""
                                         };
                                     }}
-                                    to="/allproject"
+                                    to="/comingsoon"
 
                                 >
                                     <Button
@@ -230,7 +231,7 @@ const Navbar = (props) => {
                                             color: isActive ? "#ff014f" : ""
                                         };
                                     }}
-                                    to="/blog"
+                                    to="/comingsoon"
 
                                 >
                                     <Button
