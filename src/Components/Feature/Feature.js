@@ -26,7 +26,7 @@ const Feature = () => {
                                         </div>
                                     </IconContext.Provider>
                                 </div>
-                                <div class="design_content">
+                                <div className="design_content">
                                     <h2>Responsive Web Design</h2>
                                     <p>Almost every new client these days wants a mobile version of their website. It's practically essential after all: one design for the BlackBerry, another for the iPhone, the iPad, netbook, Kindle — and all screen resolutions must be compatible, too. In the field of Web design and development, i'am quickly getting to the point of being unable to keep up with the endless new resolutions and devices.</p>
                                 </div>
@@ -43,7 +43,7 @@ const Feature = () => {
                                         </div>
                                     </IconContext.Provider>
                                 </div>
-                                <div class="development_content">
+                                <div className="development_content">
                                     <h2>Web Development</h2>
                                     <p>In the relatively short history of the internet, websites have continuously evolved to improve experiences for both brands and their audiences. Due to the leaps and bounds in technological advancements, these changes have made an impact on the way people experience content online.
 

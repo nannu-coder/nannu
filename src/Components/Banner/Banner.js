@@ -4,7 +4,7 @@ import { Container, Divider, Typography } from '@mui/material';
 import './Banner.css';
 import Typed from 'react-typed';
 import 'react-typed/dist/animatedCursor.css';
-import banner from '../../images/profile.png';
+import bannerFinal from '../../images/profile-final.png';
 import { FaInstagram, FaGithub, FaLinkedinIn, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { SiFiverr, SiFreelancer, SiUpwork, SiStackoverflow } from 'react-icons/si';
 import { Link } from 'react-router-dom';
@@ -40,7 +40,7 @@ const Banner = () => {
                     </Grid>
                     <Grid item xs={12} md={5}>
                         <div className="my-image">
-                            <img style={{ borderRadius: '10px', width: '100%' }} src={banner} alt="" />
+                            <img style={{ borderRadius: '10px', width: '100%' }} src={bannerFinal} alt="bannerFinal" />
                         </div>
                     </Grid>
                     <Grid item xs={12} md={7}>

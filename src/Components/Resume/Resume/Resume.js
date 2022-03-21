@@ -8,8 +8,8 @@ import { Container, Divider } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Skills from '../Skills/Skills';
 import './Resume.css';
-import Portfolio from '../Portfolio/Portfolio';
 import Educations from '../Educations/Educations';
+import SinglePortfolio from '../../SinglePortfolio/SinglePortfolio';
 
 
 
@@ -100,7 +100,8 @@ const Resume = () => {
                         <Skills></Skills>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        <Portfolio></Portfolio>
+                        {/* <Portfolio></Portfolio> */}
+                        <SinglePortfolio />
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                         <Educations></Educations>

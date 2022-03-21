@@ -1,0 +1,29 @@
+.getin {
+  display: flex;
+  justify-content: center;
+  margin-top: 15%;
+}
+.getin form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.getin form input {
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.getin input[type="submit"] {
+  background-color: #ff014f;
+  color: #fff;
+  border: 1px solid #ff014f;
+  cursor: pointer;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}

@@ -11,9 +11,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ElevationScroll(props) {
@@ -267,11 +266,18 @@ const Navbar = (props) => {
                                     open={Boolean(anchorElUser)}
                                     onClose={handleCloseUserMenu}
                                 >
-                                    {settings.map((setting) => (
+                                    {/* {settings.map((setting) => (
                                         <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                             <Typography textAlign="center">{setting}</Typography>
                                         </MenuItem>
-                                    ))}
+                                    ))} */}
+
+                                    <MenuItem onClick={handleCloseUserMenu}>
+                                        <Link to='/dashboard'>
+                                            <Typography textAlign="center">Dashboard</Typography>
+                                        </Link>
+                                    </MenuItem>
+
                                 </Menu>
                             </Box>
                         </Toolbar>
