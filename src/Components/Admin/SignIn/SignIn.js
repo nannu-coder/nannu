@@ -1,11 +1,21 @@
 import { Container, Grid } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import './logStyle.css';
+import useAuth from '../../../Hooks/UseAuth.js';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const [info, setInfo] = useState({});
+    const { logIn, error } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const onSubmit = data => {
+        setInfo(data);
+        logIn(info, location, navigate)
+    };
 
     return (
         <div>
@@ -15,9 +25,12 @@ const SignIn = () => {
                         <Grid item md={12}>
                             <div className="getin">
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                    <input {...register("firstName", { required: true, maxLength: 20 })} type='text' placeholder='Name' />
-                                    <input {...register("email", { required: true })} type='email' placeholder='E-mail' />
-                                    <input type="submit" placeholder='Login' />
+                                    <input {...register("email", { required: true })} type='email' placeholder='Email' />
+
+                                    <input {...register("password", { required: true })} type='password' placeholder='Password' />
+
+                                    <input type="submit" value='Login' />
+                                    {error ? <p>{error}</p> : null}
                                 </form>
                             </div>
                         </Grid>

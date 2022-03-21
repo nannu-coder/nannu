@@ -16,6 +16,7 @@ import DashboardHome from './Components/Dashboard/DashboardHome/DashboardHome';
 import AuthProvider from './Context/AuthProvider';
 import SignUp from './Components/Admin/SignUp/SignUp';
 import SignIn from './Components/Admin/SignIn/SignIn';
+import PrivateRoute from './Components/Admin/PrivateRoute/PrivateRoute';
 // import Footer from './Components/Footer/Footer';
 
 
@@ -33,7 +34,9 @@ function App() {
             <Route path='/signup' element={<SignUp />}></Route>
             <Route path='/signin' element={<SignIn />} />
 
-            <Route path='dashboard' element={< Dashboard />}>
+            <Route path='dashboard' element={<PrivateRoute>
+              < Dashboard />
+            </PrivateRoute>}>
               <Route index element={<DashboardHome />}></Route>
               <Route path='addportfolio' element={<AddPortfolio />}></Route>
               <Route path='test' element={<Test />}></Route>

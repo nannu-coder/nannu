@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import { Link, Outlet } from 'react-router-dom';
 import { AiFillHome } from 'react-icons/ai';
 import { MdOutlineMiscellaneousServices } from 'react-icons/md';
+import useAuth from '../../../Hooks/UseAuth';
 
 
 const drawerWidth = 240;
@@ -24,6 +25,7 @@ const drawerWidth = 240;
 const Dashboard = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { logOUt } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -78,7 +80,7 @@ const Dashboard = (props) => {
                         padding: '3px 0'
                     }}
                 >
-                    <Toolbar>
+                    <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"
@@ -88,9 +90,13 @@ const Dashboard = (props) => {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h6" noWrap component="div">
+
+                        <Typography style={{ display: 'flex', justifyContent: 'spaceBetween' }} variant="h6" noWrap component="div">
                             Dashboard
                         </Typography>
+
+                        <button style={{ backgroundColor: '#ff014f', cursor: 'pointer', color: '#fff', padding: '10px 20px', borderRadius: '5px', border: '1px solid #ff014f' }} onClick={logOUt}>Log Out</button>
+
                     </Toolbar>
                 </AppBar>
                 <Box
