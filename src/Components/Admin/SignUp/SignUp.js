@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
-import { Container, Grid } from '@mui/material';
+import { CircularProgress, Container, Grid } from '@mui/material';
 import useAuth from '../../../Hooks/UseAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const { register, handleSubmit, reset } = useForm();
-    const { createAccount } = useAuth();
-    // const [info, setInfo] = useState({});
+    const { createAccount, loading, error } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
 
 
     const onSubmit = data => {
-        // console.log(data);
         const allData = { email: data.email, password: data.password, name: data.name, location, navigate }
-        // setInfo(allData);
         createAccount(allData);
         console.log(allData)
 
@@ -29,7 +26,7 @@ const SignUp = () => {
                     <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                         <Grid item md={12}>
                             <div className="getin">
-                                <form onSubmit={handleSubmit(onSubmit)}>
+                                {loading ? <CircularProgress /> : <form onSubmit={handleSubmit(onSubmit)}>
                                     <input {...register("name", { required: true, maxLength: 20 })} type='text' placeholder='Name' />
 
                                     <input {...register("userName", { required: true, maxLength: 20 })} type='text' placeholder='User Name' />
@@ -39,7 +36,8 @@ const SignUp = () => {
                                     <input {...register("password", { required: true })} type='password' placeholder='Password' />
 
                                     <input type="submit" value="Sign Up" />
-                                </form>
+                                    {error ? <p>{error}</p> : null}
+                                </form>}
                             </div>
                         </Grid>
                     </Grid>

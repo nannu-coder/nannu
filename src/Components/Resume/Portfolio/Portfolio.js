@@ -9,7 +9,6 @@ import './Portfolio.css'
 import { CircularProgress } from '@mui/material';
 
 const Portfolio = ({ web }) => {
-    // const [isLoading, setIsLoading] = useState(true)
     const { image, name, description, liveLink } = web;
     return (
         <>

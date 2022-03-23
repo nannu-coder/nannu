@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import InitializeFirebase from '../Components/Firebase/Firebase.init';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import axios from 'axios';
 
 InitializeFirebase();
 
@@ -8,7 +9,7 @@ const UseFirebase = () => {
     const auth = getAuth();
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const createAccount = ({ email, password, name, location, navigate }) => {
         setLoading(true);
@@ -16,13 +17,15 @@ const UseFirebase = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                const desti = location?.state?.from || '/';
+                const desti = location?.from || '/';
                 navigate(desti);
-                console.log(user)
+                saveData(email, name);
+                setError('');
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                setError(errorMessage);
             }).finally(() => setLoading(false));
     };
 
@@ -32,8 +35,9 @@ const UseFirebase = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                const desti = location?.state?.from || '/';
+                const desti = location?.from || '/';
                 navigate(desti);
+
                 setError('')
             })
             .catch((error) => {
@@ -59,6 +63,11 @@ const UseFirebase = () => {
         }).catch((error) => {
             console.log(error)
         });
+    }
+
+    const saveData = (email, name) => {
+        const user = { email, name };
+        axios.post('http://localhost:5000/user', user)
     }
 
 

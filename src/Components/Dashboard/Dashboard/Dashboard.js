@@ -14,7 +14,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, Outlet } from 'react-router-dom';
 import { AiFillHome } from 'react-icons/ai';
-import { MdOutlineMiscellaneousServices } from 'react-icons/md';
+import { MdOutlineMiscellaneousServices, MdAdminPanelSettings } from 'react-icons/md';
+import { GrTest } from 'react-icons/gr';
 import useAuth from '../../../Hooks/UseAuth';
 
 
@@ -58,9 +59,17 @@ const Dashboard = (props) => {
                 <Link style={{ textDecoration: 'none' }} to='test'>
                     <ListItem button>
                         <ListItemIcon>
-                            icon
+                            <GrTest size={26} />
                         </ListItemIcon>
                         <ListItemText>test</ListItemText>
+                    </ListItem>
+                </Link>
+                <Link style={{ textDecoration: 'none' }} to='addadmin'>
+                    <ListItem button>
+                        <ListItemIcon>
+                            <MdAdminPanelSettings size={28} />
+                        </ListItemIcon>
+                        <ListItemText>Add Admin</ListItemText>
                     </ListItem>
                 </Link>
 

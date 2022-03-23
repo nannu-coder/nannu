@@ -1,5 +1,5 @@
 import { CircularProgress, Container, Grid } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 import './logStyle.css';
 import useAuth from '../../../Hooks/UseAuth';
@@ -7,15 +7,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
     const { register, handleSubmit } = useForm();
-    // const [signData, setSignData] = useState({});
     const { logIn, error, loading } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        // console.log(data)
         const allData = { email: data.email, password: data.password, location, navigate }
-        // setSignData(allData);
         logIn(allData);
         console.log(allData)
     };
