@@ -12,8 +12,9 @@ import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
-
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import useAuth from '../../Hooks/UseAuth';
+import logo from '../../images/logo.png';
+import avatar from '../../images/avatar.png';
 
 function ElevationScroll(props) {
     const { children, window } = props;
@@ -35,6 +36,8 @@ ElevationScroll.propTypes = {
 
 
 const Navbar = (props) => {
+    const { user } = useAuth();
+    console.log(user)
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -72,7 +75,9 @@ const Navbar = (props) => {
                                 component="div"
                                 sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                             >
-                                Nannu
+                                <Link to='/home'>
+                                    <img style={{ width: '70px', height: '40px', paddingTop: '10px' }} src={logo} alt="logo" />
+                                </Link>
                             </Typography>
 
                             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -178,7 +183,9 @@ const Navbar = (props) => {
                                 component="div"
                                 sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                             >
-                                Nannu
+                                <Link to='/home'>
+                                    <img style={{ width: '70px', height: '40px', paddingTop: '10px' }} src={logo} alt="logo" />
+                                </Link>
                             </Typography>
                             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 
@@ -241,7 +248,45 @@ const Navbar = (props) => {
                                         Blog
                                     </Button>
                                 </NavLink>
+                            </Box>
+                            <Box>
+                                <p style={{ marginLeft: '5px' }}>{user.email}</p>
+                            </Box>
 
+                            <Box sx={{ flexGrow: 0 }}>
+                                <Tooltip title="Open settings">
+                                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                        <Avatar src={avatar} />
+                                    </IconButton>
+                                </Tooltip>
+                                <Menu
+                                    sx={{ mt: '45px' }}
+                                    id="menu-appbar"
+                                    anchorEl={anchorElUser}
+                                    anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    keepMounted
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}
+                                    open={Boolean(anchorElUser)}
+                                    onClose={handleCloseUserMenu}
+                                >
+                                    {user.email && <MenuItem onClick={handleCloseUserMenu}>
+                                        <Typography textAlign="center">
+                                            <Link to='dashboard'>Dashboard</Link>
+                                        </Typography>
+                                    </MenuItem>}
+
+                                    <MenuItem onClick={handleCloseUserMenu}>
+                                        <Typography textAlign="center">
+                                            Profile
+                                        </Typography>
+                                    </MenuItem>
+                                </Menu>
                             </Box>
                         </Toolbar>
                     </Container>

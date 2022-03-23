@@ -25,11 +25,13 @@ const drawerWidth = 240;
 const Dashboard = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { logOUt } = useAuth();
-
+    const { logOUt, user } = useAuth();
+    console.log(user)
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
+
+
 
     const drawer = (
         <div>

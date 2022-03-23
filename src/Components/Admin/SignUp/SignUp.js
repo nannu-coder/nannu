@@ -2,15 +2,22 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Container, Grid } from '@mui/material';
 import useAuth from '../../../Hooks/UseAuth';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const { register, handleSubmit, reset } = useForm();
     const { createAccount } = useAuth();
-    const [info, setInfo] = useState({});
+    // const [info, setInfo] = useState({});
+    const location = useLocation();
+    const navigate = useNavigate();
+
+
     const onSubmit = data => {
-        console.log(data);
-        setInfo(data);
-        createAccount(info);
+        // console.log(data);
+        const allData = { email: data.email, password: data.password, name: data.name, location, navigate }
+        // setInfo(allData);
+        createAccount(allData);
+        console.log(allData)
 
         reset();
     };
@@ -31,7 +38,7 @@ const SignUp = () => {
 
                                     <input {...register("password", { required: true })} type='password' placeholder='Password' />
 
-                                    <input type="submit" placeholder='Sign up' />
+                                    <input type="submit" value="Sign Up" />
                                 </form>
                             </div>
                         </Grid>

@@ -34,9 +34,11 @@ function App() {
             <Route path='/signup' element={<SignUp />}></Route>
             <Route path='/signin' element={<SignIn />} />
 
-            <Route path='dashboard' element={<PrivateRoute>
-              < Dashboard />
-            </PrivateRoute>}>
+            <Route path='/dashboard' element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }>
               <Route index element={<DashboardHome />}></Route>
               <Route path='addportfolio' element={<AddPortfolio />}></Route>
               <Route path='test' element={<Test />}></Route>

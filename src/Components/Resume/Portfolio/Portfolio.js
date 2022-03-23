@@ -5,16 +5,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, Grid } from '@mui/material';
-import somoy from '../../../images/somoy.png';
 import './Portfolio.css'
+import { CircularProgress } from '@mui/material';
 
 const Portfolio = ({ web }) => {
-    console.log({ web })
+    // const [isLoading, setIsLoading] = useState(true)
     const { image, name, description, liveLink } = web;
     return (
         <>
             <Grid item md={4} sm={12} xs={12}>
-                <Card>
+                {!web ? <CircularProgress /> : <Card>
                     <CardMedia
                         component="img"
                         height="230"
@@ -36,7 +36,7 @@ const Portfolio = ({ web }) => {
                             </a>
                         </Button>
                     </CardActions>
-                </Card>
+                </Card>}
             </Grid>
         </>
     );
