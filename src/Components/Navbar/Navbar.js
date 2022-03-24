@@ -37,7 +37,6 @@ ElevationScroll.propTypes = {
 
 const Navbar = (props) => {
     const { user } = useAuth();
-    console.log(user)
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);

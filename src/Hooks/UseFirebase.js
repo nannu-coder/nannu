@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import InitializeFirebase from '../Components/Firebase/Firebase.init';
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import axios from 'axios';
 
 InitializeFirebase();
@@ -10,6 +10,7 @@ const UseFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     const createAccount = ({ email, password, name, location, navigate }) => {
         setLoading(true);
@@ -20,6 +21,15 @@ const UseFirebase = () => {
                 const desti = location?.from || '/';
                 navigate(desti);
                 saveData(email, name);
+
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                    // Profile updated!
+                }).catch((error) => {
+                    // An error occurred
+                });
+
                 setError('');
             })
             .catch((error) => {
@@ -50,11 +60,13 @@ const UseFirebase = () => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user)
+                setUser(user);
             } else {
                 setUser({})
             }
+            setLoading(false);
         });
+
     }, []);
 
     const logOUt = () => {
@@ -68,7 +80,13 @@ const UseFirebase = () => {
     const saveData = (email, name) => {
         const user = { email, name };
         axios.post('http://localhost:5000/user', user)
-    }
+    };
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/user/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
 
 
     return ({
@@ -77,7 +95,8 @@ const UseFirebase = () => {
         logOUt,
         logIn,
         error,
-        loading
+        loading,
+        admin
     });
 };
 

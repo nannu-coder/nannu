@@ -26,8 +26,7 @@ const drawerWidth = 240;
 const Dashboard = (props) => {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { logOUt, user } = useAuth();
-    console.log(user)
+    const { logOUt, admin } = useAuth();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -48,14 +47,16 @@ const Dashboard = (props) => {
                         <ListItemText>Home</ListItemText>
                     </ListItem>
                 </Link>
-                <Link style={{ textDecoration: 'none' }} to='addportfolio'>
+
+                {admin && <Link style={{ textDecoration: 'none' }} to='addportfolio'>
                     <ListItem button>
                         <ListItemIcon>
                             <MdOutlineMiscellaneousServices size={28} />
                         </ListItemIcon>
                         <ListItemText>Add Portfolio</ListItemText>
                     </ListItem>
-                </Link>
+                </Link>}
+
                 <Link style={{ textDecoration: 'none' }} to='test'>
                     <ListItem button>
                         <ListItemIcon>
@@ -64,14 +65,15 @@ const Dashboard = (props) => {
                         <ListItemText>test</ListItemText>
                     </ListItem>
                 </Link>
-                <Link style={{ textDecoration: 'none' }} to='addadmin'>
+
+                {admin && <Link style={{ textDecoration: 'none' }} to='addadmin'>
                     <ListItem button>
                         <ListItemIcon>
                             <MdAdminPanelSettings size={28} />
                         </ListItemIcon>
                         <ListItemText>Add Admin</ListItemText>
                     </ListItem>
-                </Link>
+                </Link>}
 
             </List>
         </div>
@@ -115,14 +117,13 @@ const Dashboard = (props) => {
                     sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                     aria-label="mailbox folders"
                 >
-                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                     <Drawer
                         container={container}
                         variant="temporary"
                         open={mobileOpen}
                         onClose={handleDrawerToggle}
                         ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
+                            keepMounted: true,
                         }}
                         sx={{
                             display: { xs: 'block', sm: 'none' },
@@ -147,7 +148,6 @@ const Dashboard = (props) => {
                     sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
                 >
                     <Toolbar />
-                    {/* <h1>Text Here</h1> */}
                     <Outlet />
                 </Box>
             </Box>

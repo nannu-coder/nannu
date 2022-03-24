@@ -18,6 +18,7 @@ import SignUp from './Components/Admin/SignUp/SignUp';
 import SignIn from './Components/Admin/SignIn/SignIn';
 import PrivateRoute from './Components/Admin/PrivateRoute/PrivateRoute';
 import AddAdmin from './Components/Dashboard/addAdmin/AddAdmin';
+import AdminRoute from './Components/Admin/AdminRoute/AdminRoute';
 // import Footer from './Components/Footer/Footer';
 
 
@@ -41,9 +42,17 @@ function App() {
               </PrivateRoute>
             }>
               <Route index element={<DashboardHome />}></Route>
-              <Route path='addportfolio' element={<AddPortfolio />}></Route>
+              <Route path='addportfolio' element={
+                <AdminRoute>
+                  <AddPortfolio />
+                </AdminRoute>
+              }></Route>
               <Route path='test' element={<Test />}></Route>
-              <Route path='addadmin' element={<AddAdmin />}></Route>
+              <Route path='addadmin' element={
+                <AdminRoute>
+                  <AddAdmin />
+                </AdminRoute>
+              }></Route>
             </Route>
 
             <Route path='*' element={<NotFound />} />

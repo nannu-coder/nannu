@@ -2,8 +2,24 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 
 const AddAdmin = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        fetch('http://localhost:5000/user/admin', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount !== 0) {
+                    alert('admin added Succesfully');
+                    reset();
+                }
+            })
+    };
 
     return (
         <div className='admin' style={{ display: 'flex', justifyContent: 'center' }}>
